@@ -1,0 +1,58 @@
+{
+  "Mainline": {
+    "Table": {
+      "Header": {
+        "Data": [
+          "Ranking",
+          "Names",
+          "City / Country",
+          "Height (ft)",
+          "Wiki Page",
+          "Image"
+        ]
+      },
+      "Row": [
+        {
+          "Rank": "",
+          "Name": "",
+          "Hubs": {
+            "Hub": []
+          },
+          "Height": "",
+          "HomePage": "",
+          "Logo": ""
+        },
+        {
+          "Rank": "",
+          "Name": "",
+          "Hubs": {
+            "Hub": ["", " ", " "]
+          },
+          "Height": "",
+          "HomePage": "",
+          "Logo": ""
+        },
+        {
+          "Rank": "",
+          "Name": "",
+          "Hubs": {
+            "Hub": []
+          },
+          "Height": "",
+          "HomePage": "",
+          "Logo": ""
+        },
+        {
+          "Rank": "",
+          "Name": "",
+          "Hubs": {
+            "Hub": []
+          },
+          "Height": "",
+          "HomePage": "",
+          "Logo": ""
+        }
+      ]
+    }
+  }
+}
