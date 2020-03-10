@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google News</title>
+    <link rel="stylesheet" href="mycss.css">
+</head>
+<body>
+    <div class ="glo">
+    <div class="leftmenue">
+        <div class="btnews select"  >Google News</div>
+        <div class = "btsearch">Search</div>
+    </div>
+
+    <div class= "newsdisplay">
+        <div class = "top1"> 
+            <div id = "card">
+            </div>
+            <div id ="wordcloud"></div>
+        </div>
+        <div class = "CNN">
+            <p>CNN</p>
+            <hr />
+            <div class="cnnnews">
+                <div class = "cnnt"></div>
+                <div class = "cnnt"></div>
+                <div class = "cnnt"></div>
+                <div class = "cnnt"></div>
+            </div>
+        </div>
+
+        <div class = "FOX">
+            <p>FOX News</p>
+            <hr />
+            <div class="foxnews">
+                <div class = "foxt"></div>
+                <div class = "foxt"></div>
+                <div class = "foxt"></div>
+                <div class = "foxt"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "searchdisplay">
+        <div class="form1">
+            <form name = "searchtable">
+                Keyword<span style="color:red;">*</span> <input type="text" name="Keyword" required >
+                From<span style="color:red;">*</span> <input type="date" name="from1" required >
+                To<span style="color:red;">*</span> <input type="date" name="to1"  required> 
+                <br>
+                Category <select name="cate" onchange = "getsource()">
+                    <option value="all" selected>ALL</option>
+                    <option value="business">Business</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="general">General</option>
+                    <option value="health">Health</option>
+                    <option value="science">Science</option>
+                    <option value="sports">Sports</option>
+                    <option value="technology">Technology</option>
+                </select>
+                Source <select name="sour">
+                </select>
+                <br>
+                <input type="submit" value="Search" name="submit" >
+                <input type="button" value="Clear" name="reset" onclick="resetform()">
+            </form>
+        </div>
+        <div class = "results">
+        </div>
+    </div>
+    </div>
+    <!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+    <script src="myjs.js"></script>
+</body>
+
+</html>
