@@ -118,8 +118,8 @@ def getsourcenews():
 
 @application.route('/getsource')
 def getsource():
-    cate = request.args.get("cate",None)
-    if(cate == None or cate =='all'):
+    cate = request.args.get("cat",None)
+    if( not cate or cate =='all'):
         allsource = newsapi.get_sources(language ='en',
                                     country = 'us'
         )
@@ -143,26 +143,66 @@ def getquery():
     from1 = request.args.get("from",None)
     to1 = request.args.get("to",None)
     sour = request.args.get("sour",None)
-    if(sour == 'all' or sour == None):
-        news = newsapi.get_everything( q = keyword,
-                            from_param = from1,
-                            to = to1,
-                            language = 'en',
-                            sort_by = 'publishedAt',
-                            page_size = 30
-    )
-    else:
-        news = newsapi.get_everything( q = keyword,
-                                sources = sour,
+    try:
+        if(sour == 'all' or sour == None):
+            news = newsapi.get_everything( q = keyword,
                                 from_param = from1,
                                 to = to1,
                                 language = 'en',
                                 sort_by = 'publishedAt',
                                 page_size = 30
         )
-    #filter 
+        else:
+            news = newsapi.get_everything( q = keyword,
+                                    sources = sour,
+                                    from_param = from1,
+                                    to = to1,
+                                    language = 'en',
+                                    sort_by = 'publishedAt',
+                                    page_size = 30
+            )
+        #filter 
+        tmp1=[]
+        for each in news['articles']:
+            if each['author'] =='' or each['description'] =='' or each['publishedAt'] ==''or each['source']['name'] ==''or each['title'] ==''or each['url'] ==''or each['urlToImage'] =='':
+                continue 
+            if not each['author']  or not each['description']  or not each['publishedAt'] or not each['source']['name'] or not each['title'] or not each['url'] or not each['urlToImage'] :
+                continue
+            if each['author'] =='null' or each['description'] =='null' or each['publishedAt'] =='null'or each['source']['name'] =='null'or each['title'] =='null'or each['url'] =='null'or each['urlToImage'] =='null':
+                continue 
+            tmp={"author":each['author']}
+            tmp['description']=each['description']
+            text = each['description'].split(' ')
+            # hanle extend words
+            newtext = ""
+            tcnt=0
+            spacelimit = 100
+            while len(newtext) <spacelimit:
+                newtext = newtext + text[tcnt] +" "
+                tcnt = tcnt +1
+                if tcnt >= len(text):
+                    break
+            if newtext[-2] ==',' or newtext[-2] =='-' or newtext[-2] =='.' or newtext[-2] =='!':
+                newtext=newtext[:-2] +" "
+            
+            newtext = newtext[:-1]  + "..."
+            if len(each['description']) < spacelimit:
+                tmp['description2'] = each['description']
+            else:
+                tmp['description2'] = newtext
+            date = each['publishedAt'].split('-')
+            newdate = date[1][:2]+ '/' + date[2][:2] +'/'+date[0][:4]
+            tmp['publishedAt'] = newdate
+            
+            tmp['source']=each['source']['name']
+            tmp['title']=each['title']
+            tmp['url']=each['url']
+            tmp['urlToImage']=each['urlToImage']
+            tmp1.append(tmp)
+    except Exception as e:
+        return jsonify({"error":e.get_message()})
 
-    return jsonify({'news': news})
+    return jsonify({'news': tmp1})
 
 
 # run the application.

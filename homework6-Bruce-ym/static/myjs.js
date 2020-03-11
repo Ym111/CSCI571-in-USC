@@ -24,12 +24,14 @@ cnt=1;
 document.addEventListener("DOMcontentLoaded", webinit())
 document.querySelector("form").addEventListener("submit",submitform)
 
+
 function webinit(){
     gethead()
     getnews()
     drawWC()
     getsource()
     settime()
+
     
     
 }
@@ -45,7 +47,7 @@ function gethead(){
     Doc = Doc.articles
      
     for( i =0;i<5;i++){
-        var text= " <a href=" + Doc[i].url + " style=\"text-decoration: none;\">"
+        var text= " <a target=\"_blank\" href=" + Doc[i].url + " style=\"text-decoration: none;\">"
         text+="<div  class=\"cardtop\">"
         text+="    <img src="+ Doc[i].imageurl+" >"
         text+=  " <div class = \"cardbd\">"
@@ -84,7 +86,7 @@ function getnews(){
         tb[i].addEventListener("click",function(){
             const nodes = Array.prototype.slice.call( this.parentNode.childNodes );
             const index = nodes.indexOf(this);
-            location.href =cnnn[(index-1)/2 ]; 
+            window.open(cnnn[(index-1)/2 ]) ;  
         })
     }
     foxnew = Doc.FOX;
@@ -98,7 +100,7 @@ function getnews(){
         tb[i].addEventListener("click",function(){
             const nodes = Array.prototype.slice.call( this.parentNode.childNodes );
             const index = nodes.indexOf(this);
-            location.href =foxn[(index-1)/2 ]; 
+            window.open(foxn[(index-1)/2 ]) ; 
         })
     }
 }
@@ -181,24 +183,78 @@ function submitform(e){
     }catch(e){
         alert(e);
     }
+    if(Doc.error){
+        alert(Doc.error);
+        return;
+    }
     //show result
     results = document.querySelector(".results")
     results.style.display="block";
-    docfile = Doc.news.articles;
+    docfile = Doc.news;
     // built result
     var text="";
-    for(i=1;i<=5;i++){
-        text+="<div class= \"result\">"
-        text += "<img src="+docfile[i].urlToImage+">"
-        text +="<div>"
-        text +="<p class=\"ti\">"+docfile[i].title+"</p>"
-        text += "<p class=\"de\">" +docfile[i].description+ "</p>"
-        text +="</div></div>"
+    for(i=0;i<docfile.length && i<5;i++){
+        text+=`
+        <div class= "result">
+               <span class = "after close">&times;</span>
+                <img src="${docfile[i].urlToImage}">
+                <div class = "rc">
+                    <p class="ti">${docfile[i].title}</p>
+                    <p class="after"><strong>Author: </strong>${docfile[i].author}</p>
+                    <p class="after"><strong>Source: </strong>${docfile[i].source}</p>
+                    <p class="after"><strong>Date: </strong>${docfile[i].publishedAt}</p>
+                    <p class="after">${docfile[i].description}</p>
+                    <p class="before">${ docfile[i].description2}</p>
+                    <a class="after" target="_blank" href="${docfile[i].url}">See Orginal Post</a>
+                </div>
+            </div>`
+    }
+
+    for(i=5;i<docfile.length && i<15;i++){
+        text+=`
+        <div class= "result morecard">
+               <span class = "after close">&times;</span>
+                <img src="${docfile[i].urlToImage}">
+                <div class = "rc">
+                    <p class="ti">${docfile[i].title}</p>
+                    <p class="after"><strong>Author: </strong>${docfile[i].author}</p>
+                    <p class="after"><strong>Source: </strong>${docfile[i].source}</p>
+                    <p class="after"><strong>Date: </strong>${docfile[i].publishedAt}</p>
+                    <p class="after">${docfile[i].description}</p>
+                    <p class="before">${ docfile[i].description2}</p>
+                    <a class="after" target="_blank" href="${docfile[i].url}">See Orginal Post</a>
+                </div>
+            </div>`
+    }
+    if(docfile.length >6){
+        text += "<div class=\"btsm\">Show More</div>"
+    }
+    if(docfile.length == 0){
+        text +="<div class= \"case1\">No results </div>"
     }
     results.innerHTML=text;
+    changecard();
+    showmore();
 
-    
-    
+}
+
+function showmore(){
+    document.querySelector(".btsm").addEventListener("click",function(){
+        results = document.getElementsByClassName("morecard");
+        text = document.querySelector(".btsm").innerHTML;
+        if(text === "Show More"){
+            for(i = 0;i<results.length;i++){
+                results[i].style.display="block";
+            }
+            document.querySelector(".btsm").innerHTML="Show Less";
+        }else{
+            for(i = 0;i<results.length;i++){
+                results[i].style.display="none";
+            }
+            document.querySelector(".btsm").innerHTML="Show More";
+        }
+
+    })
 }
 
 function resetform(){
@@ -209,12 +265,10 @@ function resetform(){
     //option
     optCate = document.getElementsByName("cate")[0];
     optCate.options[0].selected = true;
+    getsource()
     optSour = document.getElementsByName("sour")[0];
     optSour.options[0].selected =true;
-    var tmp = document.getElementsByName("sour")[0];
-    tmp.innerHTML="";
-    tmp.options.add(new Option('ALL','all'));
-
+    results = document.querySelector(".results").innerHTML=""
 
 }
 function getsource(){
@@ -229,12 +283,9 @@ function getsource(){
     sources = Doc.sources;
     //console.log(sources)
     var tmp = document.getElementsByName("sour")[0];
-    if(tmp.options.length>2){
-        tmp.innerHTML=""
-    }
-
-    tmp.options.add(new Option('ALL','all'));
-    for(i=0;i<10;i++){
+    tmp.innerHTML="";
+    tmp.options.add(new Option('all','all'));
+    for(i=0;i<sources.length&&i<10;i++){
         tmp.options.add(new Option(sources[i].name,sources[i].id));
     }
 }
@@ -278,6 +329,30 @@ function getdate(){
     str[5] = day;
 
     return str;
+}
+
+function changecard(){
+    var card = document.getElementsByClassName("result")
+    for(i = 0;i<card.length;i++){
+        card[i].addEventListener("click",function(){
+            
+            after=this.getElementsByClassName("after");
+            for(j=0;j<after.length;j++){
+                after[j].style.display="block";
+                this.getElementsByClassName("before")[0].style.display="none";
+            }
+        })
+        card[i].getElementsByClassName("close")[0].addEventListener("click",function(){
+            event 
+            after=this.parentNode.getElementsByClassName("after");
+            for(j=0;j<after.length;j++){
+                after[j].style.display="none";
+            }
+            this.parentNode.getElementsByClassName("before")[0].style.display="block";
+            event.stopPropagation();
+
+        })
+    }
 }
 
 
