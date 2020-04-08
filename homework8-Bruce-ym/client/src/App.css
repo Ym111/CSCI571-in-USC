@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+.navbar {
+    background: linear-gradient(to right, rgb(24, 40, 70), rgb(80, 110, 180)) !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.my-spr {
+    margin: auto;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@media (max-width:1000px){
+    .auto-search{
+        width: 70%;
+    }
+}
+@media (min-width:1001px){
+    .auto-search{
+        width: 25%;
+    }
+}
+.mytime{
+    font-style: italic;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.myst {
+    color: white;
+    background-color: rgb(110,117,124);
 }
 
-.App-link {
-  color: #61dafb;
+.st-world{
+    color: white;
+    background-color: rgb(125,78,255);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.st-politics{
+    color: white;
+    background-color: rgb(65,148,132);
+}
+
+.st-business{
+    color: white;
+    background-color: rgb(70,150,240);
+}
+
+.st-technology{
+    color: black;
+    background-color: rgb(206,220,57);
+}
+
+.st-sport{
+    color: black;
+    background-color: rgb(246,194,68);
+}
+.st-others{
+    color: white;
+    background-color: rgb(110,117,124);
+}
+
+.st-GUARDIAN{
+    color: white;
+    background-color: rgb(20,40,74);
+}
+
+.st-NYTIMES{
+    color: black;
+    background-color: rgb(221,221,221);
 }

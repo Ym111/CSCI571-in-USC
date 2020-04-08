@@ -1,15 +1,20 @@
- const express = require('express');
- 
- const app = express();
- 
-app.get('/',(req,res) => res.json({ msg: '!!'}) 
+const express = require('express');
+const cors = require('cors')
+const app = express();
+
+app.use(cors())
+app.get('/', (req, res) => res.json({ msg: '!!' })
 );
 
- const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
- //
- app.use('/api/users',require('./routes/users'))
- app.use('/api/auth',require('./routes/auth'))
- app.use('/api/contacts',require('./routes/contacts'))
+//
+app.use('/GD/getNews', require('./routes/GD/getNews'))
+app.use('/GD/searchNews', require('./routes/GD/getNewsDetails'))
+app.use('/GD/searchByQuery', require('./routes/GD/seachNews.js'))
 
- app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.use('/NY/getNews', require('./routes/NY/getNews'))
+app.use('/NY/searchNews', require('./routes/NY/getNewsDetails'))
+app.use('/NY/searchByQuery', require('./routes/NY/seachNews.js'))
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
