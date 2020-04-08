@@ -12,7 +12,7 @@ const ShareIcon = props => {
   const {url,size} = props;
   return (
     <div className=" d-flex justify-content-between ml-5 mr-5 mb-2">
-      <ReactTooltip effect = 'solid' />
+      
       <FacebookShareButton
       url={url}
       hashtag={"#CSCI_571_NewsApp"}
@@ -25,6 +25,8 @@ const ShareIcon = props => {
       url={url}
       subject={"#CSCI_571_NewsApp"}
       > <EmailIcon size={size} round={true} data-tip="Email"/></EmailShareButton>
+      
+      <ReactTooltip effect = 'solid' />
     </div>
   )
 }

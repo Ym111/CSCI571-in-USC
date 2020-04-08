@@ -22,7 +22,7 @@ router.get('/article', async (req, res) => {
         tmp['desc'] = doc.response.docs[0].abstract;
         tmp['source'] = "NYTIMES";
         tmp['article_id'] = doc.response.docs[0].web_url;
-        tmp['section'] = doc.response.docs[0].news_desk;
+        tmp['section'] = doc.response.docs[0].news_desk.toLowerCase();
         tmp['web_url'] = doc.response.docs[0].web_url;
         // make a judgement about image 
         if (doc.response.docs[0].multimedia === undefined || doc.response.docs[0].multimedia === null) {

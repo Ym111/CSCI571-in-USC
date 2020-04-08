@@ -37,7 +37,7 @@ const NewsItem = ({ news: { title, image_url, section, date, desc, article_id, w
                         />
                         <div className="mt-4 card-text d-flex justify-content-between">
                             <h6 className="mytime">{date}</h6>
-                            <h6 className={"rounded  pl-1 pr-1 text-uppercase " + "st-"+section}> {section}</h6>
+                            <h6 className={"rounded  pl-1 pr-1 text-uppercase myst " + "st-"+section}> {section}</h6>
                         </div>
 
                     </div>
@@ -52,7 +52,7 @@ const NewsItem = ({ news: { title, image_url, section, date, desc, article_id, w
                 <Modal.Header closeButton>
                     <Modal.Title>{title}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Share via</Modal.Body>
+                <Modal.Body style={{textAlign:"center"}}> <h5>Share via</h5> </Modal.Body>
                 <ShareIcon size={60} url={web_url} />
             </Modal>
         </Fragment>

@@ -21,7 +21,7 @@ router.get('/article', async (req, res) => {
         tmp['source'] = "GUARDIAN";
         tmp['desc'] = doc.response.content.blocks.body[0].bodyTextSummary;
         tmp['article_id'] = doc.response.content.id;
-        tmp['section'] = doc.response.content.sectionId;
+        tmp['section'] = doc.response.content.sectionId.toLowerCase();
         tmp['web_url'] = doc.response.content.webUrl;
         // make a judgement about image 
         if ((doc.response.content.blocks.main) === undefined || (doc.response.content.blocks.main.elements) === undefined || (doc.response.content.blocks.main.elements[0]) === undefined || (doc.response.content.blocks.main.elements[0].assets[doc.response.content.blocks.main.elements[0].assets.length - 1]) === undefined) {

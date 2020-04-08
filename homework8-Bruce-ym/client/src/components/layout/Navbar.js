@@ -5,6 +5,7 @@ import Switch from "react-switch";
 import { useLocation, useHistory, NavLink } from 'react-router-dom';
 import NewsContext from '../../contexts/newsContext'
 import AutoSearch from './AutoSearch';
+import ReactTooltip from 'react-tooltip'
 
 const Navbar = () => {
     const newsContext = useContext(NewsContext);
@@ -14,6 +15,7 @@ const Navbar = () => {
     const path = location.pathname;
     return (
         <div>
+            
             <nav className="navbar navbar-expand-lg navbar-dark bg-light">
                 <div className="auto-search">
                     <AutoSearch />
@@ -45,11 +47,12 @@ const Navbar = () => {
                     <div className="navbar-nav ml-auto mt-2 mt-lg-0 ">
 
                         <li className="nav-item">
-                            <div className="navbar-brand" type="button" onClick={() => history.push("/Saved")}>
+                        
+                            <div className="navbar-brand "  data-tip="Bookmark" type="button" onClick={() => history.push("/Saved")}>
                                 {(path === '/Saved') ? (
-                                    <FaBookmark />
+                                    <FaBookmark/>
                                 ) : (
-                                        <FaRegBookmark />
+                                        <FaRegBookmark   />
                                     )}
                             </div>
                         </li>
@@ -79,6 +82,7 @@ const Navbar = () => {
                 </div>
 
             </nav>
+            <ReactTooltip  effect = 'solid'  place='bottom' />
         </div>
     )
 

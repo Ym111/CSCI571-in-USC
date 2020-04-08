@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, Fragment } from 'react';
+import React, { useContext, useEffect, Fragment, useState } from 'react';
 import NewsContext from '../../contexts/newsContext';
 import Spinner from '../layout/Spinner';
 import { useLocation } from 'react-router-dom';
@@ -9,6 +9,8 @@ import ShareIcon from '../layout/ShareIcon';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactTooltip from 'react-tooltip'
+import Truncate from 'react-truncate';
+import { IoIosArrowDown,IoIosArrowUp } from "react-icons/io";
 
 const Newsdetails = () => {
     const newsContext = useContext(NewsContext)
@@ -32,13 +34,28 @@ const Newsdetails = () => {
         //eslint-disable-next-line
     }, [isSave, news])
 
+    // function extend the details 
+    const [lines, setlines] = useState(4)
+    const [truncated, settruncated] = useState(false)
+    const [expanded, setexpanded] = useState(false)
+    const handleTruncate= newtruncated => {
+        if (truncated !== newtruncated) {
+            settruncated(newtruncated)
+        }
+    }
+    const toggleLines =e => {
+        e.preventDefault();
+        setexpanded(!expanded)
+    }
+
+
     if (loading) {
         return <Spinner />
     } else {
         return (
 
             <Fragment>
-                
+
 
                 <ToastContainer
                     position="top-center"
@@ -51,7 +68,7 @@ const Newsdetails = () => {
                     draggable
                     pauseOnHover
                 />
-                <ReactTooltip effect='solid'/>
+                
                 <div className='card m-4 border shadow p-4'>
                     <h3 className="card-title font-italic">{title}</h3>
 
@@ -62,7 +79,7 @@ const Newsdetails = () => {
                                 <ShareIcon size={30} url={web_url} />
                             </div>
                             <div className="ml-3" data-tip="BookMark">
-                            
+
                                 {isSave ?
                                     <FaBookmark size={28} color={'red'} data-tip="BookMark" onClick={() => {
                                         delnews(news);
@@ -93,16 +110,28 @@ const Newsdetails = () => {
 
                     </div>
                     <img src={image_url} className="img-fluid" alt="Loading..." />
-                    <LinesEllipsis
-                        text={desc}
-                        maxLine='4'
-                        ellipsis='...'
-                        basedOn='words'
-                        style={{ whiteSpace: 'pre-wrap' }}
-                    />
+                    <div>
+                        <Truncate
+                            lines={!expanded && lines}
+                            ellipsis={(
+                                <span>
+                                <span>...  </span>
+                                <div > <IoIosArrowDown onClick={toggleLines}  size= '2em' style={{float:"right"}}  /></div>
+                                </span>
+                            )}
+                            onTruncate={handleTruncate}
+                        >
+                            {desc}
+                        </Truncate>
+                        {!truncated && expanded && (
+                            <div> <IoIosArrowUp onClick={toggleLines} size= '2em' style={{float:"right"}}/></div>
+                        )}
+                    </div>
 
                 </div>
                 <CommentBox id={article_id} />
+                
+                <ReactTooltip effect='solid' />
             </Fragment>
         )
 
