@@ -7,6 +7,7 @@ import ShareIcon from '../layout/ShareIcon';
 import { ToastContainer, toast,Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const SavedNewsItem = ({ news: { title, image_url, section, date, article_id, web_url,source } }) => {
     const history = useHistory();
     const newsContext = useContext(NewsContext);
@@ -45,10 +46,10 @@ const SavedNewsItem = ({ news: { title, image_url, section, date, article_id, we
 
                 <img src={image_url} className="card-img-top" alt="..." />
                 <div className="card-body d-flex justify-content-between mb-2">
-                    <span className="card-text text-muted mytime"><small>{date}</small></span>
+                    <span className="card-text text-muted mytime">{date}</span>
                     <div className="d-flex">
-                    <span className={"card-text text-uppercase rounded mr-1 pl-1 pr-1 myst st-"+section }><small>{section}</small></span>
-                    {isSave &&<span className={"card-text text-uppercase rounded ml-1 pl-1 pr-1  st-" +source }><small>{source}</small></span>}
+                    <span className={"badge text-uppercase m-1 myst st-"+section }>{section}</span>
+                    {isSave &&<span className={" badge text-uppercase m-1 myst st-" +source }>{source}</span>}
                     </div>
                    
                 </div>
@@ -56,12 +57,12 @@ const SavedNewsItem = ({ news: { title, image_url, section, date, article_id, we
             </div>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{source}
-                    <br/>
+                    <Modal.Title>{isSave&&source}
+                    {isSave&&<br/>}
                     <small>{title} </small>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Share via</Modal.Body>
+                <Modal.Body style={{textAlign:"center"}}> <h5>Share via</h5> </Modal.Body>
                 <ShareIcon size={60} url={web_url} />
             </Modal>
             

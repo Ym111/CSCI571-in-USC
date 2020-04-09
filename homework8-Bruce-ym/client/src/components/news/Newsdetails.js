@@ -11,6 +11,7 @@ import ReactTooltip from 'react-tooltip'
 import Truncate from 'react-truncate';
 import { IoIosArrowDown,IoIosArrowUp } from "react-icons/io";
 import { Element, animateScroll as scroll, scroller } from 'react-scroll'
+
 const Newsdetails = () => {
     const newsContext = useContext(NewsContext)
     const location = useLocation();
@@ -83,15 +84,16 @@ const Newsdetails = () => {
                         <div className="d-flex ">
                             <div className="mr-3">
                                 <ShareIcon size={30} url={web_url} />
+                                
                             </div>
                             <div className="ml-3" data-tip="BookMark">
 
                                 {isSave ?
-                                    <FaBookmark size={28} color={'red'} data-tip="BookMark" onClick={() => {
+                                    <FaBookmark size={28} color={'red'} data-tip="Bookmark" onClick={() => {
                                         delnews(news);
                                         toast("Removing " + title);
                                     }} /> :
-                                    <FaRegBookmark size={28} color={'red'} data-tip="BookMark" onClick={() => {
+                                    <FaRegBookmark size={28} color={'red'} data-tip="Bookmark" onClick={() => {
                                         addnews(news);
                                         toast("Saving " + title);
 

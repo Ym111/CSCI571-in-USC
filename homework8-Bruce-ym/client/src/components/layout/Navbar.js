@@ -44,22 +44,22 @@ const Navbar = () => {
                             <NavLink className="nav-link " activeClassName="active" to={("/Sports")} >Sports</NavLink>
                         </li>
                     </div>
-                    <div className="navbar-nav ml-auto mt-2 mt-lg-0 ">
+                    <div className="navbar-nav ml-auto ">
 
                         <li className="nav-item">
                         
-                            <div className="navbar-brand "   onClick={() => history.push("/Saved")}>
+                            <div className="navbar-brand mb-1"   onClick={() => history.push("/Saved")}>
                                 {(path === '/Saved') ? (
-                                    <div data-tip="Bookmark" ><FaBookmark/></div>
+                                    <div data-tip="Bookmark" data-place="bottom"><FaBookmark/></div>
                                 ) : (
-                                    <div data-tip="Bookmark" ><FaRegBookmark/></div>
+                                    <div data-tip="Bookmark" data-place="bottom"><FaRegBookmark/></div>
                                     )}
                             </div>
                         </li>
                         {(path !== '/Saved') && (path.search("/newsdetail") !== 0 )&& (path.search("/Search") !== 0 )  && (
                             <Fragment>
                                 <li>
-                                    <span className=" navbar-brand" >NY Times</span>
+                                    <span className=" navbar-brand" >NYTimes</span>
                                 </li>
                                 <li>
                                     <div className="navbar-brand">

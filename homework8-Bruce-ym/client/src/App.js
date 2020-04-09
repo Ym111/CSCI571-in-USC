@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/layout/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home'
 import CateNews from './components/pages/CateNews'
@@ -16,7 +15,7 @@ const App = () => {
     <NewsState>
       <Router >
         <div className="App">
-          <Navbar />
+         
           <Switch>
             <Route
               exact

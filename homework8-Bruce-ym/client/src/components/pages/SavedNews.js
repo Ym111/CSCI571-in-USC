@@ -1,9 +1,11 @@
 import React from 'react'
 import SavedNewsbody from '../news/SavedNewsbody'
 import { ToastContainer, toast,Zoom } from 'react-toastify';
+import Navbar from '../layout/Navbar';
 function SaveNews() {
     return (
     <div>
+         <Navbar />
         <ToastContainer
                     position="top-center"
                     autoClose={2000}

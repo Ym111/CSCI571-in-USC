@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import Newsbody from '../news/Newsbody'
 import NewsContext from '../../contexts/newsContext'
-
+import Navbar from '../layout/Navbar';
 const Home = () => {
     //search home news
     const newsContext = useContext(NewsContext);
@@ -13,6 +13,7 @@ const Home = () => {
     //console.log(newsLists);
     return (
         <div>
+             <Navbar />
             <Newsbody />
         </div>
     )

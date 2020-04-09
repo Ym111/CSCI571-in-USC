@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip'
+
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -26,7 +26,7 @@ const ShareIcon = props => {
       subject={"#CSCI_571_NewsApp"}
       > <EmailIcon size={size} round={true} data-tip="Email"/></EmailShareButton>
       
-      <ReactTooltip effect = 'solid' />
+      
     </div>
   )
 }

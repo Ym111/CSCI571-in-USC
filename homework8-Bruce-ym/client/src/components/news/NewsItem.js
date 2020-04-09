@@ -37,7 +37,7 @@ const NewsItem = ({ news: { title, image_url, section, date, desc, article_id, w
                         />
                         <div className="mt-4 card-text d-flex justify-content-between">
                             <h6 className="mytime">{date}</h6>
-                            <h6 className={`rounded pl-1 pr-1 text-uppercase myst st-${section}`}> {section}</h6>
+                            <h6 className={`badge  text-uppercase myst m-1 st-${section}`}> {section}</h6>
                         </div>
 
                     </div>
