@@ -20,7 +20,7 @@ const App = () => {
           <Switch>
             <Route
               exact
-              path='/NewsDetail/:id'
+              path='/newsdetail/:id'
               component={NewsCard} />
             <Route
               exact

@@ -12,10 +12,13 @@ const SavedNewsbody=()=>{
     } else {
         if(savedLists.length >0){
             return (
+                <div>
+                <h3>Favorites</h3>
                 <div className="row">
                     {savedLists.map(news => (
                        <SavedNewsItem key={news.article_id} news={news}/>
                     ))}
+                </div>
                 </div>
             );
         }else{

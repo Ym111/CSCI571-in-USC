@@ -18,7 +18,7 @@ const NewsItem = ({ news: { title, image_url, section, date, desc, article_id, w
         <Fragment>
             <div className="card mb-3 shadow rounded p-2" onClick={() => {
                 //e.preventDefault();
-                history.push(`/NewsDetail/article?id=${article_id}`)
+                history.push(`/newsdetail/article?id=${article_id}`)
             }} >
                 <div className="row card-body ">
                     <img src={image_url} className="card-img col-md-3 border p-1" alt="..." />
@@ -37,7 +37,7 @@ const NewsItem = ({ news: { title, image_url, section, date, desc, article_id, w
                         />
                         <div className="mt-4 card-text d-flex justify-content-between">
                             <h6 className="mytime">{date}</h6>
-                            <h6 className={"rounded  pl-1 pr-1 text-uppercase myst " + "st-"+section}> {section}</h6>
+                            <h6 className={`rounded pl-1 pr-1 text-uppercase myst st-${section}`}> {section}</h6>
                         </div>
 
                     </div>

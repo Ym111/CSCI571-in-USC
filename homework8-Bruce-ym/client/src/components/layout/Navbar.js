@@ -48,15 +48,15 @@ const Navbar = () => {
 
                         <li className="nav-item">
                         
-                            <div className="navbar-brand "  data-tip="Bookmark" type="button" onClick={() => history.push("/Saved")}>
+                            <div className="navbar-brand "   onClick={() => history.push("/Saved")}>
                                 {(path === '/Saved') ? (
-                                    <FaBookmark/>
+                                    <div data-tip="Bookmark" ><FaBookmark/></div>
                                 ) : (
-                                        <FaRegBookmark   />
+                                    <div data-tip="Bookmark" ><FaRegBookmark/></div>
                                     )}
                             </div>
                         </li>
-                        {(path !== '/Saved') && (path.search("/NewsDetail") !== 0 )&& (path.search("/Search") !== 0 )  && (
+                        {(path !== '/Saved') && (path.search("/newsdetail") !== 0 )&& (path.search("/Search") !== 0 )  && (
                             <Fragment>
                                 <li>
                                     <span className=" navbar-brand" >NY Times</span>

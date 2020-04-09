@@ -10,10 +10,11 @@ const SearchNews=(match)=>{
     const {isGD, searchByQuery} = newsContext;
     useEffect(()=>{
         searchByQuery(kw);
+        //eslint-disable-next-line
     },[kw,isGD])
     return (
         <div>
-            <h3>Resutls:</h3> 
+            
             <SearchNewsBody/>
         </div>
     )

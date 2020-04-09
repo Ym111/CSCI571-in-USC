@@ -4,7 +4,7 @@ import { MdDelete, MdShare } from "react-icons/md";
 import NewsContext from '../../contexts/newsContext';
 import Modal from 'react-bootstrap/Modal';
 import ShareIcon from '../layout/ShareIcon';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast,Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SavedNewsItem = ({ news: { title, image_url, section, date, article_id, web_url,source } }) => {
@@ -22,19 +22,9 @@ const SavedNewsItem = ({ news: { title, image_url, section, date, article_id, we
     const isSave = path.search('/Save') ? false:true;
     return (
         <Fragment>
-            <ToastContainer
-                    position="top-center"
-                    autoClose={2000}
-                    hideProgressBar
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnVisibilityChange
-                    draggable
-                    pauseOnHover
-                />
+            
             <div className="col-md-3 mt-1" >
-            <div className="card  m-3  p-2  border" onClick={() => { history.push(`/NewsDetail/article?id=${article_id}`) }}>
+            <div className="card  m-3  p-2  border" onClick={() => { history.push(`/newsdetail/article?id=${article_id}`) }}>
                 <div className="card-title ">
                     
                     <h5 className="card-title font-italic">{title} 
@@ -42,14 +32,7 @@ const SavedNewsItem = ({ news: { title, image_url, section, date, article_id, we
                         {isSave && <MdDelete onClick={(e) => {
                             e.stopPropagation();
                             delnews(tmpnews);
-                            toast("Removing " + title, {
-                                position: "top-center",
-                                autoClose: 2000,
-                                hideProgressBar: true,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true
-                            });
+                            toast("Removing " + title);
                         }} />}
                         <MdShare onClick={(e) => {
                             e.stopPropagation();

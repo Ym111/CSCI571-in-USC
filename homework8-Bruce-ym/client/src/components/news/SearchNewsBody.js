@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext, Fragment} from 'react'
 import Spinner from '../layout/Spinner'
 import NewsContext from '../../contexts/newsContext'
 import SavedNewsItem from './SavedNewsItem'
@@ -12,16 +12,19 @@ const SearchNewsBody=()=>{
     } else {
         if(newsLists.length >0){
             return (
+                <Fragment>
+                <h3>Results:</h3>
                 <div className="row">
                     {newsLists.map(news => (
                        <SavedNewsItem key={news.article_id} news={news}/>
                     ))}
                 </div>
+                </Fragment>
             );
         }else{
             return(
                 <div>
-                    <h3>No Search Results.</h3>
+                    <h3 style={{textAlign:"center"}}>No Search Results.</h3>
                 </div>
 
             )
