@@ -1,0 +1,7 @@
+{
+    "GUARDIN_KEY" : "ec2f4924-761b-4253-a5fa-017129712ad4",
+    "GUARDIN_URL" : "https://content.guardianapis.com",
+    "NYTIMES_URL" : "https://api.nytimes.com/svc/topstories/v2",
+    "NYTIMES_SEARCH_URL" : "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+    "NYTIMES_KEY" : "0EyXRopHbl3n4eMpObEmNXD0PAAQ1XQO"
+}

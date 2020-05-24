@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BKCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="190" height="280"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="190" height="280"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wr1-3S-woH">
+                        <rect key="frame" x="5" y="5" width="180" height="270"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nut-3K-nvY">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="lQe-lN-cT8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2Z-XY-mlg">
+                                <rect key="frame" x="10" y="170" width="160" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-QU-Vrh">
+                                <rect key="frame" x="10" y="245" width="25.5" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aih-6R-xsj">
+                                <rect key="frame" x="80" y="245" width="4" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLq-xZ-UgI">
+                                <rect key="frame" x="85" y="245" width="42" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pru-ZU-HnE">
+                                <rect key="frame" x="157" y="241.5" width="20" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="lL7-JV-wKa"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="bookmark.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="bookmarkPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7as-as-Xv7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LLq-xZ-UgI" firstAttribute="leading" secondItem="Aih-6R-xsj" secondAttribute="leading" constant="5" id="2rw-ZS-Nmz"/>
+                            <constraint firstItem="R2Z-XY-mlg" firstAttribute="centerX" secondItem="Wr1-3S-woH" secondAttribute="centerX" id="2z3-SA-rvk"/>
+                            <constraint firstItem="Aih-6R-xsj" firstAttribute="leading" secondItem="Wr1-3S-woH" secondAttribute="leading" constant="80" id="3jI-Cf-8uy"/>
+                            <constraint firstItem="Pru-ZU-HnE" firstAttribute="centerY" secondItem="LLq-xZ-UgI" secondAttribute="centerY" id="52c-ef-0nt"/>
+                            <constraint firstItem="dfe-QU-Vrh" firstAttribute="leading" secondItem="Wr1-3S-woH" secondAttribute="leading" constant="10" id="9YI-o8-yES"/>
+                            <constraint firstAttribute="bottom" secondItem="dfe-QU-Vrh" secondAttribute="bottom" constant="10" id="TKd-pe-n1D"/>
+                            <constraint firstAttribute="trailing" secondItem="R2Z-XY-mlg" secondAttribute="trailing" constant="10" id="UuP-oU-7BM"/>
+                            <constraint firstItem="Nut-3K-nvY" firstAttribute="top" secondItem="Wr1-3S-woH" secondAttribute="top" id="X4B-ws-AzT"/>
+                            <constraint firstAttribute="bottom" secondItem="Aih-6R-xsj" secondAttribute="bottom" constant="10" id="bBk-5N-VgC"/>
+                            <constraint firstAttribute="trailing" secondItem="Pru-ZU-HnE" secondAttribute="trailing" constant="3" id="bUx-rD-6yK"/>
+                            <constraint firstAttribute="trailing" secondItem="Nut-3K-nvY" secondAttribute="trailing" id="fTc-Nj-KDE"/>
+                            <constraint firstItem="Nut-3K-nvY" firstAttribute="leading" secondItem="Wr1-3S-woH" secondAttribute="leading" id="fYd-aL-SVS"/>
+                            <constraint firstItem="R2Z-XY-mlg" firstAttribute="top" secondItem="Nut-3K-nvY" secondAttribute="bottom" constant="10" id="mM2-Xz-ECj"/>
+                            <constraint firstAttribute="bottom" secondItem="LLq-xZ-UgI" secondAttribute="bottom" constant="10" id="oYf-9a-Yo9"/>
+                            <constraint firstItem="R2Z-XY-mlg" firstAttribute="leading" secondItem="Wr1-3S-woH" secondAttribute="leading" constant="10" id="pbT-iP-qIx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Wr1-3S-woH" secondAttribute="bottom" constant="5" id="4s7-4L-FWD"/>
+                <constraint firstAttribute="trailing" secondItem="Wr1-3S-woH" secondAttribute="trailing" constant="5" id="6bq-Wi-NCS"/>
+                <constraint firstItem="Wr1-3S-woH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Zg7-HO-zaI"/>
+                <constraint firstItem="Wr1-3S-woH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="gCo-bf-yHj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="189" height="281"/>
+            <connections>
+                <outlet property="bgLabel" destination="Wr1-3S-woH" id="EeT-G5-7gq"/>
+                <outlet property="bookmarkLabel" destination="Pru-ZU-HnE" id="fKG-IQ-yPR"/>
+                <outlet property="dateLabel" destination="dfe-QU-Vrh" id="AYv-I8-o8N"/>
+                <outlet property="imageLabel" destination="Nut-3K-nvY" id="Qtp-cH-o4c"/>
+                <outlet property="sectionLabel" destination="LLq-xZ-UgI" id="GqZ-Ib-MIX"/>
+                <outlet property="titleLabel" destination="R2Z-XY-mlg" id="J3n-Td-CJ2"/>
+            </connections>
+            <point key="canvasLocation" x="235.50724637681162" y="173.10267857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+    </resources>
+</document>

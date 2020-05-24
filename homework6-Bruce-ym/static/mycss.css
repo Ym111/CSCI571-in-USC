@@ -1,0 +1,241 @@
+body{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+body .glo{
+    display: inline-block;
+    width: 900px;
+}
+.leftmenue{
+    background-color: rgb(243, 243, 243);
+    margin-left: 20px;
+    text-align: center;
+    width:130px;
+    box-shadow: 0 0 3px;    
+    position: fixed;
+    float: left;
+}
+.leftmenue div{
+    text-align:center;
+    height: 40px;
+    line-height: 40px;
+    transition: 0.6s;
+}
+.leftmenue .select{
+    background-color: gray;
+    color:white
+}
+.leftmenue div:hover{
+    color:white;
+    background-color: rgb(103,173,92);
+    transition: 0.6s;
+}
+.newsdisplay{
+    margin-left: 160px;
+    text-align: center;
+}
+.top1{padding: 1%;
+    display: inline-flex;
+    width: 100%;
+    height: 200px;
+
+}
+#card{
+    width: 60%;
+    color : white;
+    position: relative;
+}
+#wordcloud{
+    width: 37%;
+    margin-left: 1%;
+    background-color: rgb(243, 243, 243);
+}
+
+
+.searchdisplay{
+    width: 100%;
+    display: none;
+    margin-left: 160px;
+    text-align: center;
+}
+.form1{
+    padding-top: 5px;
+    margin-top: 5px;
+    background-color: rgb(243,243,243);
+}
+.results{
+    text-align: center;
+    display: block;
+}
+
+.cardbd{
+    height: auto;
+    background-color:rgba(0, 0, 0, 0.4 ) ;
+    position: absolute;
+    bottom: 0px;
+}
+.cardtitle{
+    color: white;
+    font-size: large;
+    font-weight: bold;
+   
+}
+.carddesc{
+    color: white;
+    font-size: 15px;
+}
+.cardtop{
+    width: 100%;
+    height: 200px;
+}
+.cardtop img{
+    object-fit: cover;
+   height: 100%;
+   width: 100%;
+
+}
+
+/*  CNN and FOX */
+.CNN, .FOX{
+    margin-top: 1px;
+    width: 100%;
+    margin-bottom: 1%;
+    height: auto;
+}
+
+.CNN p, .FOX p{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    font-weight: 1000;
+}
+
+.cnnt,.foxt{
+    width:  23%;
+    margin-left: auto;
+    margin-right: auto;
+    height: inherit;
+    background-color: rgb(243, 243, 243);
+    display: inline-block;
+    box-shadow: 0 0 3px;    
+    overflow: hidden;
+}
+.cnnt img,.foxt img{
+    object-fit: cover;
+    width: 100%;
+    height: 120px;
+}
+.cnnt h4,.foxt h4{
+    font-size: 15px;
+    font-weight: 700;
+}
+.cnnt p, .foxt p{
+    font-size: 10px;
+}
+
+.cnnnews , .foxnews{
+    text-align: center;
+    display: flex;
+    height: auto;
+}
+
+.result{
+    margin-top: 7px;
+    position: relative;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 0px 0px 3px;
+    height: auto;
+    min-height: 100px;
+    overflow: hidden;
+}
+.result img{
+    float: left;
+    margin-left: 10px;
+    margin-top: 15px;;
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+}
+.result .rc{
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width:  750px;
+    
+}
+.result div p,.result div div,.result div a {
+font-size: 15px;
+}
+.result .ti{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+.result:hover{
+    box-shadow: 3px 3px 20px;
+    
+}
+
+.close{
+    float: right;
+    position: relative;
+    margin-right: 3px;
+    font-size: 30px;
+}
+
+.after{
+    display:none;
+}
+
+.btsm{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgb(243, 243, 243);
+    transition: 0.6s;
+    
+}
+
+.btsm:hover{
+    color:white;
+    background-color: rgb(103,173,92);
+    transition: 0.6s;
+}
+
+.morecard{
+    display: none;
+}
+
+.case1{
+    margin-top: 7px;
+    position: relative;
+    text-align: center;
+}
+
+
+#f1{
+    font-size: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#f1 select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bt1{
+    border: 0px;
+    transition: 0.6s;
+}
+.bt1:hover{
+    background-color: rgb(103,173,92);
+    color: white;
+    transition: 0.6s;
+}
